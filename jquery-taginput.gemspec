@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'jquery/taginput/version'
+require 'jquery-taginput/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "jquery-taginput"
-  spec.version       = Jquery::Taginput::VERSION
+  spec.version       = JqueryTaginput::VERSION
   spec.authors       = ["Chung-Yi Chi"]
   spec.email         = ["chung-yi@artsymail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "A jQuery plugin for tag/token style text entry."
+  spec.description   = "A jQuery plugin for tag/token style text entry."
+  spec.homepage      = "https://github.com/starsirius/jquery-taginput"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"

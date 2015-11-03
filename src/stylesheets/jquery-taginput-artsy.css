@@ -1,0 +1,32 @@
+.taginput-artsy {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.taginput-artsy .taginput-tag,
+.taginput-artsy .taginput-input {
+  display: inline-block;
+}
+
+.taginput-artsy .taginput-tag,
+.taginput-artsy .taginput-input > input {
+  line-height: 1.5;
+  margin: 0.2em 0.4em 0.2em 0;
+}
+
+.taginput-artsy .taginput-input > input {
+  outline: none;
+  border-color: transparent;
+}
+
+.taginput-artsy .taginput-tag {
+  background-color: #efefef;
+  padding: 0 0.4em;
+}
+
+.taginput-artsy .taginput-tag-delete {
+  margin-left: 0.2em;
+  cursor: pointer;
+}

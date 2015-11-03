@@ -1,0 +1,50 @@
+body {
+  width: 90%;
+  margin: 50px auto;
+  font-family: 'Quattrocento Sans', 'Helvetica Neue', sans-serif;
+}
+
+@media (min-width: 768px) {
+  body {
+    width: 500px;
+    margin-top: 100px;
+  }
+}
+
+.title {
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  font-style: italic;
+  margin-bottom: 50px;
+}
+
+.example-description {
+  color: #999;
+  font-style: italic;
+}
+
+.email-to {
+  font-size: 0;
+  padding: 5px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 50px;
+}
+
+.email-to-label, .email-to-emails {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.email-to-label {
+  width: 30px;
+  margin: 3px 0;
+}
+
+.email-to-emails {
+  width: calc(100% - 30px);
+}
