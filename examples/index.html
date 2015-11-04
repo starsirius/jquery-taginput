@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Day Schedule Selector Example</title>
+  <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href='https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,400italic,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="../src/stylesheets/jquery-taginput-artsy.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+  <h1 class="taginput-artsy title">
+    <div class="taginput-tag">
+      <span class="taginput-tag-label">jQuery Taginput</span>
+      <span class="taginput-tag-delete">&times;</span>
+    </div>
+  </h1>
+  <div class="subtitle">A jQuery plugin for tag/token style text entry.</div>
+
+  <h2>Examples</h2>
+
+  <h3>Default</h3>
+  <p class="example-description">Type &lt;Enter&gt;, &lt;Space&gt;, comma, or semicolon to form a tag.</p>
+  <div class="email-to">
+    <label class="email-to-label">To: </label>
+    <ul id="emails" class="taginput-artsy email-to-emails">
+      <li class="taginput-input"><input></li>
+    </ul>
+  </div>
+
+  <h3>Email Addresses</h3>
+  <p class="example-description">Try to form a tag when the input value is a valid email address, e.g. "chung-yi@artsy.net", and "Chung-Yi &lt;chung-yi@artsy.net&gt;"</p>
+  <div class="email-to">
+    <label class="email-to-label">To: </label>
+    <ul id="emails-with-display-names" class="taginput-artsy email-to-emails">
+      <li class="taginput-input"><input></li>
+    </ul>
+  </div>
+
+  <script src="vendor/javascripts/jquery-1.11.2.js"></script>
+  <script src="../src/javascripts/jquery-taginput.js"></script>
+  <script>
+    (function ($) {
+      $("#emails").taginput();
+
+      $("#emails-with-display-names").taginput({
+        ignoredKeys: [13, 188, 186], // Allow typing <SPACE>
+        /**
+         * Naive check if the input value is a valid email address with or
+         * without display name, for example,
+         * chung-yi@artsy.net, "Chung-Yi Chi" <chung-yi@artys.net>.
+         */
+        isTaggable: function ($input) {
+          var email = $input.val().trim()
+            , re_email_with_display_name = /^[^<]*<\s*([^\s]*)>[^>]*$/g
+            , re_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+            , email_without_display_name;
+
+          email_without_display_name = email.replace(re_email_with_display_name, '$1');
+          return re_email.test(email_without_display_name);
+        }
+      });
+    })($);
+  </script>
+
+</body>
+</html>
