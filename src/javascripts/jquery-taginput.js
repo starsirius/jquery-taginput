@@ -10,16 +10,21 @@
 
   var Taginput = function (el, options) {
     this.$el = $(el);
+    this.$input = this.$el.find('.taginput-input > input');
     this.settings = $.extend({}, Taginput.DEFAULTS, options);
     this.init();
   };
 
   Taginput.prototype.init = function () {
-    this.$el.find('.taginput-input > input').on('keydown', $.proxy(interceptCharacters, this));
-    this.$el.find('.taginput-input > input').on('keyup', $.proxy(this.settings.createTagOnKeyup, this));
-    this.$el.find('.taginput-input > input').on('blur', $.proxy(createTagOnBlur, this));
-    this.$el.find('.taginput-input > input').on('keydown', $.proxy(removePreviousTagByKey, this));
+    this.$input.on('keydown', $.proxy(interceptCharacters, this));
+    this.$input.on('keyup', $.proxy(this.settings.createTagOnKeyup, this));
+    this.$input.on('blur', $.proxy(createTagOnBlur, this));
+    this.$input.on('keydown', $.proxy(removePreviousTagByKey, this));
+    this.$input.on('keyup blur focus', function (e) { resizeInput($(e.target)); });
+    this.$el.on('click', $.proxy(function (e) { this.$input.focus(); }, this));
     this.$el.on('click', '.taginput-tag-delete', $.proxy(function (e) { this.removeTag($(e.target).closest('.taginput-tag')); }, this));
+
+    resizeInput(this.$input);
   };
 
   Taginput.prototype.createTagByInput = function ($input) {
@@ -83,6 +88,12 @@
       this.removeTag($input.closest('.taginput-input').prev('.taginput-tag'));
     }
   };
+
+  // Heuristic to resize the input width according to the text.
+  // TODO: There should be a max width.
+  var resizeInput = function ($input) {
+    $input.attr('size', $input.val().length + 3);
+  }
 
   // Taginput Plugin Defaults
   // =====================================

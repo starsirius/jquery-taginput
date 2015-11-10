@@ -11,14 +11,16 @@
 }
 
 .taginput-artsy .taginput-tag,
-.taginput-artsy .taginput-input > input {
+.taginput-artsy .taginput-input {
   line-height: 1.5;
   margin: 0.2em 0.4em 0.2em 0;
 }
 
 .taginput-artsy .taginput-input > input {
   outline: none;
-  border-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
 .taginput-artsy .taginput-tag {
