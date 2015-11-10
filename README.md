@@ -1,5 +1,7 @@
 # jQuery Taginput
 
+A jQuery plugin for tag/token style text entry. [Demo](https://starsirius.github.io/jquery-taginput).
+
 ## Installation
 
 Add this line to your application's Gemfile:
