@@ -1,7 +1,13 @@
 body {
   width: 90%;
   margin: 50px auto;
-  font-family: 'Quattrocento Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'EB Garamond', 'Helvetica Neue', serif;
+}
+
+pre {
+  background-color: #efefef;
+  padding: 0 1em;
+  overflow-x: auto;
 }
 
 @media (min-width: 768px) {
@@ -11,21 +17,24 @@ body {
   }
 }
 
+.github-fork-ribbon {
+  background-color: #6a0bc1;
+}
+
 .title {
   margin-bottom: 5px;
 }
 
 .subtitle {
-  font-style: italic;
   margin-bottom: 50px;
 }
 
 .example-description {
   color: #999;
-  font-style: italic;
 }
 
-.email-to {
+.tags-row,
+.emails-row {
   font-size: 0;
   padding: 5px;
   border-top: 1px solid #ccc;
@@ -33,18 +42,28 @@ body {
   margin-bottom: 50px;
 }
 
-.email-to-label, .email-to-emails {
+.tags-label,
+.tags,
+.emails-label,
+.emails {
   display: inline-block;
   vertical-align: top;
   font-size: 14px;
   line-height: 1.5;
 }
 
-.email-to-label {
+.tags-label {
+  width: 40px;
+  margin: 3px 0;
+}
+.tags {
+  width: calc(100% - 40px);
+}
+
+.emails-label {
   width: 30px;
   margin: 3px 0;
 }
-
-.email-to-emails {
+.emails {
   width: calc(100% - 30px);
 }
