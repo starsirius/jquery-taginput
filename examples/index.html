@@ -6,12 +6,21 @@
   <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-  <link href='https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,400italic,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
+  <!--[if lt IE 9]>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.ie.min.css" />
+  <![endif]-->
   <link rel="stylesheet" type="text/css" href="../src/stylesheets/jquery-taginput-artsy.css">
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
+  <div class="github-fork-ribbon-wrapper right">
+    <div class="github-fork-ribbon">
+      <a href="https://github.com/starsirius/jquery-taginput">Fork me on GitHub</a>
+    </div>
+  </div>
 
   <h1 class="taginput-artsy title">
     <div class="taginput-tag">
@@ -19,24 +28,46 @@
       <span class="taginput-tag-delete">&times;</span>
     </div>
   </h1>
-  <div class="subtitle">A jQuery plugin for tag/token style text entry.</div>
+  <div class="subtitle">
+    A jQuery plugin for
+    <span class="taginput-artsy">
+      <span class="taginput-tag"><span class="taginput-tag-label">tag/token</span></span>
+    </span>
+    style text entry.
+  </div>
 
   <h2>Examples</h2>
 
   <h3>Default</h3>
+
+  <pre><code>
+$("#tags").taginput();
+  </code></pre>
+
   <p class="example-description">Type &lt;Enter&gt;, &lt;Space&gt;, comma, or semicolon to form a tag.</p>
-  <div class="email-to">
-    <label class="email-to-label">To: </label>
-    <ul id="emails" class="taginput-artsy email-to-emails">
+  <div class="tags-row">
+    <label class="tags-label">Tags: </label>
+    <ul id="tags" class="taginput-artsy tags">
       <li class="taginput-input"><input></li>
     </ul>
   </div>
 
   <h3>Email Addresses</h3>
+
+  <pre><code>
+$("#emails").taginput({
+  ignoredKeys: [13, 188, 186], // Allow typing &lt;Space&gt;
+  isTaggable: function ($input) {
+    // Return true if the value is a valid email address
+    // ...
+  }
+});
+  </code></pre>
+
   <p class="example-description">Try to form a tag when the input value is a valid email address, e.g. "chung-yi@artsy.net", and "Chung-Yi &lt;chung-yi@artsy.net&gt;"</p>
-  <div class="email-to">
-    <label class="email-to-label">To: </label>
-    <ul id="emails-with-display-names" class="taginput-artsy email-to-emails">
+  <div class="emails-row">
+    <label class="emails-label">To: </label>
+    <ul id="emails" class="taginput-artsy emails">
       <li class="taginput-input"><input></li>
     </ul>
   </div>
@@ -45,9 +76,9 @@
   <script src="../src/javascripts/jquery-taginput.js"></script>
   <script>
     (function ($) {
-      $("#emails").taginput();
+      $("#tags").taginput();
 
-      $("#emails-with-display-names").taginput({
+      $("#emails").taginput({
         ignoredKeys: [13, 188, 186], // Allow typing <SPACE>
         /**
          * Naive check if the input value is a valid email address with or

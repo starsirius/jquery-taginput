@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   list-style-type: none;
+  cursor: text;
 }
 
 .taginput-artsy .taginput-tag,
@@ -16,7 +17,13 @@
   margin: 0.2em 0.4em 0.2em 0;
 }
 
+.taginput-artsy .taginput-tag:last-child,
+.taginput-artsy .taginput-input:last-child {
+  margin-right: 0;
+}
+
 .taginput-artsy .taginput-input > input {
+  line-height: 1.5;
   outline: none;
   border: none;
   padding: 0;
